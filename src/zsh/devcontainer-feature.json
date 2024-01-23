@@ -1,0 +1,34 @@
+{
+  "id": "zsh",
+  "version": "1.0.0",
+  "name": "ZSH for Dev Containers",
+  "description": "A feature that installs ZSH with Oh My ZSH, command history, plugins, and themes.",
+  "options": {
+    "commandHistoryLocation": {
+      "type": "string",
+      "default": "/commandhistory/",
+      "description": "Choose your favorite color."
+    },
+    "omzPlugins": {
+      "type": "string",
+      "default": "https://github.com/zsh-users/zsh-autosuggestions https://github.com/zsh-users/zsh-syntax-highlighting https://github.com/agkozak/zsh-z",
+      "description": "Space separated list of Oh-My-ZSH custom plugin Git URLs that will be cloned"
+    },
+    "username": {
+      "type": "string",
+      "proposals": [
+        "node",
+        "devcontainer",
+        "vscode",
+        "codespace",
+        "none",
+        "automatic"
+      ],
+      "default": "node",
+      "description": "Enter name of a non-root user to configure or none to skip"
+    }
+  },
+  "installsAfter": [
+    "ghcr.io/devcontainers/features/common-utils"
+  ]
+}
