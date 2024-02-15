@@ -15,7 +15,7 @@ A feature that installs ZSH with Oh My ZSH, command history, plugins, and themes
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| commandHistoryLocation | Location to store command history | string | /commandhistory/ |
+| commandHistoryLocation | Location to store command history | string | /commandhistory |
 | omzPluginList | Space separated list of Oh-My-ZSH custom plugin Git URLs that will be cloned | string | git https://github.com/zsh-users/zsh-autosuggestions https://github.com/zsh-users/zsh-syntax-highlighting https://github.com/agkozak/zsh-z |
 | username | The username to install ZSH for, by default uses 'remoteUser' or 'containerUser' from config | string | - |
 
