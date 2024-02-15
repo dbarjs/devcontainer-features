@@ -1,0 +1,110 @@
+{
+  "id": "code-extras",
+  "version": "0.1.0",
+  "name": "Extra settings and extensions for VS Code",
+  "description": "A collection of extra settings and extensions for VS Code.",
+  "dependsOn": {
+    "ghcr.io/devcontainers/features/github-cli:1": { },
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": { },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": { },
+    "ghcr.io/dbarjs/devcontainer-features/zsh:latest": { },
+    "ghcr.io/dbarjs/devcontainer-features/code-essentials": { }
+  },
+  "installsAfter": [
+    "ghcr.io/devcontainers/features/common-utils",
+    "ghcr.io/devcontainers/features/git",
+    "ghcr.io/dbarjs/devcontainer-features/zsh",
+    "ghcr.io/dbarjs/devcontainer-features/code-essentials"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "antfu.open-in-github-button",
+        "antfu.where-am-i",
+        "eamodio.gitlens",
+        "GitHub.copilot",
+        "github.vscode-github-actions",
+        "github.vscode-github-actions",
+        "GitHub.vscode-pull-request-github"
+      ],
+      "settings": {
+        "search.exclude": {
+          "**/*.snap": true,
+          "**/*.svg": true,
+          "**/.git": true,
+          "**/.github": false,
+          "**/.nuxt": true,
+          "**/.output": true,
+          "**/.pnpm": true,
+          "**/.vscode": true,
+          "**/.yarn": true,
+          "**/assets": true,
+          "**/bower_components": true,
+          "**/dist/**": true,
+          "**/logs": true,
+          "**/node_modules": true,
+          "**/out/**": true,
+          "**/package-lock.json": true,
+          "**/pnpm-lock.yaml": true,
+          "**/public": true,
+          "**/temp": true,
+          "**/yarn.lock": true,
+          "**/CHANGELOG*": true,
+          "**/LICENSE*": true
+        },
+        "github.copilot.enable": {
+          "*": true,
+          "markdown": true,
+          "plaintext": false
+        },
+        "gitlens.codeLens.authors.enabled": false,
+        "gitlens.codeLens.enabled": false,
+        "gitlens.codeLens.recentChange.enabled": false,
+        "gitlens.menus": {
+          "editor": {
+            "blame": false,
+            "clipboard": true,
+            "compare": true,
+            "history": false,
+            "remote": false
+          },
+          "editorGroup": {
+            "blame": true,
+            "compare": false
+          },
+          "editorTab": {
+            "clipboard": true,
+            "compare": true,
+            "history": true,
+            "remote": true
+          },
+          "explorer": {
+            "clipboard": true,
+            "compare": true,
+            "history": true,
+            "remote": true
+          },
+          "scm": {
+            "authors": true
+          },
+          "scmGroup": {
+            "compare": true,
+            "openClose": true,
+            "stash": true
+          },
+          "scmGroupInline": {
+            "stash": true
+          },
+          "scmItem": {
+            "clipboard": true,
+            "compare": true,
+            "history": true,
+            "remote": false,
+            "stash": true
+          }
+        },
+        "svg.preview.mode": "svg"
+      }
+    }
+  }
+}
