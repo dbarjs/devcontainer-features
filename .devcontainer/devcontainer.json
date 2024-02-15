@@ -27,6 +27,5 @@
     "ghcr.io/devcontainers/features/common-utils:2": { },
     "ghcr.io/lukewiwa/features/shellcheck:0.2.3": { }
   },
-  "remoteUser": "node",
   "postCreateCommand": "/bin/bash -ex ./.devcontainer/setup.sh > postCreateCommand.log"
 }
