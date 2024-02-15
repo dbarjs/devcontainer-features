@@ -15,8 +15,8 @@ jobs:
         features:
           - zsh
         baseImage:
-          - ubuntu:latest
-          - debian:latest
+          - ubuntu:jammy
+          - debian:12
           - mcr.microsoft.com/devcontainers/base:ubuntu
           - mcr.microsoft.com/devcontainers/base:debian
     steps:
