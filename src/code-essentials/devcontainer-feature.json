@@ -12,7 +12,7 @@
   "installsAfter": [
     "ghcr.io/devcontainers/features/common-utils",
     "ghcr.io/devcontainers/features/git",
-    "ghcr.io/devcontainers/features/zsh"
+    "ghcr.io/dbarjs/devcontainer-features/zsh"
   ],
   "customizations": {
     "vscode": {
@@ -26,11 +26,8 @@
         "usernamehw.errorlens"
       ],
       "settings": {
-        // ========== UX - Code Navigation ==========
         "explorer.fileNesting.enabled": true,
         "explorer.fileNesting.expand": false,
-
-        // ========== Extension Settings ==========
         "cSpell.enabled": false,
         "cSpell.allowCompoundWords": true,
         "emmet.showSuggestionsAsSnippets": true,
