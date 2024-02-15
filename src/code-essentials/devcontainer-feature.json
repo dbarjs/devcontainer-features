@@ -7,7 +7,6 @@
     "ghcr.io/devcontainers/features/github-cli:1": { },
     "ghcr.io/devcontainers/features/docker-outside-of-docker:1": { },
     "ghcr.io/devcontainers/features/docker-in-docker:2": { },
-    // Use dbarjs ZSH terminal.
     "ghcr.io/dbarjs/devcontainer-features/zsh:latest": { }
   },
   "installsAfter": [
@@ -15,11 +14,8 @@
     "ghcr.io/devcontainers/features/git",
     "ghcr.io/devcontainers/features/zsh"
   ],
-  // Configure tool-specific properties.
   "customizations": {
-    // Configure properties specific to VS Code.
     "vscode": {
-      // Add the IDs of extensions you want installed when the container is created.
       "extensions": [
         "aaron-bond.better-comments",
         "antfu.file-nesting",
