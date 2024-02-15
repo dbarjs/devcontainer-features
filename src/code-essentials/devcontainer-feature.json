@@ -1,0 +1,66 @@
+{
+  "id": "code-essentials",
+  "version": "0.1.0",
+  "name": "Essential Setup for VS Code",
+  "description": "A collection of essential settings and extensions for VS Code.",
+  "dependsOn": {
+    "ghcr.io/devcontainers/features/github-cli:1": { },
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": { },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": { },
+    // Use dbarjs ZSH terminal.
+    "ghcr.io/dbarjs/devcontainer-features/zsh:latest": { }
+  },
+  "installsAfter": [
+    "ghcr.io/devcontainers/features/common-utils",
+    "ghcr.io/devcontainers/features/git",
+    "ghcr.io/devcontainers/features/zsh"
+  ],
+  // Configure tool-specific properties.
+  "customizations": {
+    // Configure properties specific to VS Code.
+    "vscode": {
+      // Add the IDs of extensions you want installed when the container is created.
+      "extensions": [
+        "aaron-bond.better-comments",
+        "antfu.file-nesting",
+        "johnsoncodehk.vscode-tsconfig-helper",
+        "ms-azuretools.vscode-docker",
+        "naumovs.color-highlight",
+        "streetsidesoftware.code-spell-checker",
+        "usernamehw.errorlens"
+      ],
+      "settings": {
+        // ========== UX - Code Navigation ==========
+        "explorer.fileNesting.enabled": true,
+        "explorer.fileNesting.expand": false,
+
+        // ========== Extension Settings ==========
+        "cSpell.enabled": false,
+        "cSpell.allowCompoundWords": true,
+        "emmet.showSuggestionsAsSnippets": true,
+        "emmet.triggerExpansionOnTab": false,
+        "errorLens.enabledDiagnosticLevels": [
+          "warning",
+          "error"
+        ],
+        "errorLens.excludeBySource": [
+          "cSpell",
+          "eslint"
+        ],
+        "fileNestingUpdater.autoUpdate": true,
+        "fileNestingUpdater.autoUpdateInterval": 720,
+        "fileNestingUpdater.promptOnAutoUpdate": false,
+        "fileNestingUpdater.upstreamRepo": "antfu/vscode-file-nesting-config",
+        "fileNestingUpdater.upstreamBranch": "main",
+        "git.autofetch": true,
+        "git.confirmSync": false,
+        "git.enableSmartCommit": true,
+        "git.untrackedChanges": "separate",
+        "prettier.enable": false,
+        "prettier.printWidth": 200,
+        "prettier.semi": false,
+        "prettier.singleQuote": true
+      }
+    }
+  }
+}
