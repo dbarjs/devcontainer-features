@@ -5,6 +5,7 @@ set -e
 source dev-container-features-test-lib
 
 # Test ZSH plugins
+check "git plugin active" zsh -i -c "echo \$plugins" | grep "git"
 check "zsh-autosuggestions plugin active" zsh -i -c "echo \$plugins" | grep "zsh-autosuggestions"
 check "zsh-syntax-highlighting plugin active" zsh -i -c "echo \$plugins" | grep "zsh-syntax-highlighting"
 check "zsh-z plugin active" zsh -i -c "echo \$plugins" | grep "zsh-z"

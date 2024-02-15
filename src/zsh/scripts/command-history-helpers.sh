@@ -15,7 +15,7 @@ create_command_history_location() {
   touch "$COMMAND_HISTORY_LOCATION/$BASH_HISTORY_FILENAME"
   touch "$COMMAND_HISTORY_LOCATION/$ZSH_HISTORY_FILENAME"
 
-  chown -R $USERNAME $COMMAND_HISTORY_LOCATION
+  chown -R "$USERNAME" "$COMMAND_HISTORY_LOCATION"
 }
 
 config_bash_history() {

@@ -2,10 +2,11 @@
 
 set -e
 
-USERNAME="${USERNAME:-"node"}"
+USERNAME=${USERNAME:-$_REMOTE_USER}
 COMMAND_HISTORY_LOCATION="${COMMANDHISTORYLOCATION:-"/commandhistory/"}"
 OMZ_PLUGIN_LIST="${OMZPLUGINLIST:-""}"
 
+echo "installing $USERNAME"
 
 # Import helper scripts
 source "scripts/env-helpers.sh"

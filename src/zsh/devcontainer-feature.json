@@ -11,21 +11,18 @@
     },
     "omzPluginList": {
       "type": "string",
-      "default": "https://github.com/zsh-users/zsh-autosuggestions https://github.com/zsh-users/zsh-syntax-highlighting https://github.com/agkozak/zsh-z",
+      "default": "git https://github.com/zsh-users/zsh-autosuggestions https://github.com/zsh-users/zsh-syntax-highlighting https://github.com/agkozak/zsh-z",
       "description": "Space separated list of Oh-My-ZSH custom plugin Git URLs that will be cloned"
     },
     "username": {
       "type": "string",
       "proposals": [
+        "root",
         "node",
-        "devcontainer",
-        "vscode",
-        "codespace",
-        "none",
-        "automatic"
+        "vscode"
       ],
-      "default": "node",
-      "description": "Enter name of a non-root user to configure or none to skip"
+      "default": "",
+      "description": "The username to install ZSH for, by default uses 'remoteUser' or 'containerUser' from config"
     }
   },
   "installsAfter": [
