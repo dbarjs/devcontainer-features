@@ -15,9 +15,10 @@ jobs:
         features:
           - zsh
         baseImage:
-          - debian:latest
           - ubuntu:latest
+          - debian:latest
           - mcr.microsoft.com/devcontainers/base:ubuntu
+          - mcr.microsoft.com/devcontainers/base:debian
     steps:
       - uses: actions/checkout@v3
 
@@ -33,7 +34,6 @@ jobs:
     strategy:
       matrix:
         features:
-          - color
           - zsh
     steps:
       - uses: actions/checkout@v3

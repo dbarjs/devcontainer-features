@@ -1,12 +1,11 @@
 {
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "customizations": {
     "vscode": {
       "extensions": [
         "mads-hartmann.bash-ide-vscode",
         "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode",
-        "DavidAnson.vscode-markdownlint"
+        "esbenp.prettier-vscode"
       ],
       "settings": {
         "json.schemas": [

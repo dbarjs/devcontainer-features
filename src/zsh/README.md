@@ -4,9 +4,7 @@
 
 ```json
 "features": {
-    "ghcr.io/devcontainers/feature-starter/color:1": {
-        "version": "latest"
-    }
+    "ghcr.io/dbarjs/devcontainer-features/zsh:0": {}
 }
 ```
 
