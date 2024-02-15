@@ -15,7 +15,7 @@ install_spaceship_theme() {
     git clone --depth 1 https://github.com/spaceship-prompt/spaceship-prompt.git "$THEMES_LOCATION/spaceship-prompt"
 
     # create symlink
-    ln -s "spaceship-prompt/spaceship.zsh-theme" "spaceship.zsh-theme"
+    ln -s "$THEMES_LOCATION/spaceship-prompt/spaceship.zsh-theme" "$THEMES_LOCATION/spaceship.zsh-theme"
   fi
 
   # check if spaceship theme is already configured, if so, skip
