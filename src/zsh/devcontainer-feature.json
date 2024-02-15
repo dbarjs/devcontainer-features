@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "name": "ZSH for Dev Containers",
   "description": "A feature that installs ZSH with Oh My ZSH, command history, plugins, and themes.",
+  "installsAfter": [
+    "ghcr.io/devcontainers/features/common-utils",
+    "ghcr.io/devcontainers/features/git"
+  ],
   "options": {
     "commandHistoryLocation": {
       "type": "string",
@@ -24,8 +28,5 @@
       "default": "",
       "description": "The username to install ZSH for, by default uses 'remoteUser' or 'containerUser' from config"
     }
-  },
-  "installsAfter": [
-    "ghcr.io/devcontainers/features/common-utils"
-  ]
+  }
 }

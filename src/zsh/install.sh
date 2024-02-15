@@ -20,6 +20,8 @@ check_root
 
 echo "Configuring ZSH for user: $USERNAME"
 
+check_packages git ca-certificates
+
 # Get user location
 USER_LOCATION=$(get_user_location "$USERNAME")
 
