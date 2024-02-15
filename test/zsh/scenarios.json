@@ -1,6 +1,6 @@
 {
-  "config_zsh": {
-    "image": "mcr.microsoft.com/devcontainers/base:debian",
+  "test": {
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
     "features": {
       "zsh": { }
     }

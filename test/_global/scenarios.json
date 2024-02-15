@@ -1,8 +1,8 @@
 {
-    "zsh": {
-        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-        "features": {
-            "zsh": { }
-        }
+  "zsh": {
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+      "zsh": { }
     }
+  }
 }
