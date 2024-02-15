@@ -59,9 +59,15 @@ add_plugin_to_list() {
 #   - The formatted list of installed Zsh plugins.
 get_installed_zsh_plugins() {
   local ZSH_CONFIG_LOCATION="$1"
-  local ZSH_CONFIG_CONTENT=$(get_zshrc_content "$ZSH_CONFIG_LOCATION")
-  local RAW_PLUGIN_LIST=$(get_raw_plugin_list "$ZSH_CONFIG_CONTENT")
-  local FORMATTED_PLUGIN_LIST=$(format_plugin_list "$RAW_PLUGIN_LIST")
+
+  local ZSH_CONFIG_CONTENT
+  local RAW_PLUGIN_LIST
+  local FORMATTED_PLUGIN_LIST
+  
+  ZSH_CONFIG_CONTENT=$(get_zshrc_content "$ZSH_CONFIG_LOCATION")
+  RAW_PLUGIN_LIST=$(get_raw_plugin_list "$ZSH_CONFIG_CONTENT")
+  FORMATTED_PLUGIN_LIST=$(format_plugin_list "$RAW_PLUGIN_LIST")
+
   echo "plugins: $FORMATTED_PLUGIN_LIST"
 }
 
@@ -73,14 +79,18 @@ get_installed_zsh_plugins() {
 format_plugins_inline() {
   local ZSH_CONFIG_LOCATION="$1"
 
+  local ZSH_CONFIG_CONTENT
+  local RAW_PLUGIN_LIST
+  local FORMATTED_PLUGIN_LIST
+
   if ! [ -f "$ZSH_CONFIG_LOCATION" ]; then
     echo "bad config location"
     return
   fi
 
-  local ZSH_CONFIG_CONTENT=$(get_zshrc_content "$ZSH_CONFIG_LOCATION")
-  local RAW_PLUGIN_LIST=$(get_raw_plugin_list "$ZSH_CONFIG_CONTENT")
-  local FORMATTED_PLUGIN_LIST=$(format_plugin_list "$RAW_PLUGIN_LIST")
+  ZSH_CONFIG_CONTENT=$(get_zshrc_content "$ZSH_CONFIG_LOCATION")
+  RAW_PLUGIN_LIST=$(get_raw_plugin_list "$ZSH_CONFIG_CONTENT")
+  FORMATTED_PLUGIN_LIST=$(format_plugin_list "$RAW_PLUGIN_LIST")
 
   # Replace the old plugins list with the new one in the .zshrc file
   perl -i -pe "BEGIN{undef $/;} s/plugins=\(.*?\)/plugins=($FORMATTED_PLUGIN_LIST)/smg" "$ZSH_CONFIG_LOCATION"
@@ -138,11 +148,15 @@ install_zsh_plugin() {
     return
   fi
 
-  local PLUGIN_NAME=$(basename "$PLUGIN_URL")
+  local PLUGIN_NAME
+  local ZSH_CONFIG_CONTENT
+  local RAW_PLUGIN_LIST
+  local FORMATTED_PLUGIN_LIST
 
-  local ZSH_CONFIG_CONTENT=$(get_zshrc_content "$ZSH_CONFIG_LOCATION")
-  local RAW_PLUGIN_LIST=$(get_raw_plugin_list "$ZSH_CONFIG_CONTENT")
-  local FORMATTED_PLUGIN_LIST=$(format_plugin_list "$RAW_PLUGIN_LIST")
+  PLUGIN_NAME=$(basename "$PLUGIN_URL")
+  ZSH_CONFIG_CONTENT=$(get_zshrc_content "$ZSH_CONFIG_LOCATION")
+  RAW_PLUGIN_LIST=$(get_raw_plugin_list "$ZSH_CONFIG_CONTENT")
+  FORMATTED_PLUGIN_LIST=$(format_plugin_list "$RAW_PLUGIN_LIST")
 
   # if is not cloned, clone it
   if ! is_plugin_cloned "$PLUGIN_NAME" "$PLUGINS_LOCATION"; then
@@ -158,7 +172,9 @@ install_zsh_plugin() {
 
   git clone --depth 1 "$PLUGIN_URL" "$PLUGINS_LOCATION/$PLUGIN_NAME"
 
-  local NEW_PLUGIN_LIST=$(add_plugin_to_list "$FORMATTED_PLUGIN_LIST" "$PLUGIN_NAME")
+  local NEW_PLUGIN_LIST
+
+  NEW_PLUGIN_LIST=$(add_plugin_to_list "$FORMATTED_PLUGIN_LIST" "$PLUGIN_NAME")
   sed -i "s/^plugins=(.*$/plugins=($NEW_PLUGIN_LIST)/" "$ZSH_CONFIG_LOCATION"
 }
 

@@ -1,3 +1,5 @@
+workspace.code-workspace
+
 # bellow is merge of vscode and node git ignores
 
 .vscode/*

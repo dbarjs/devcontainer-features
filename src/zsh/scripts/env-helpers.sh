@@ -24,10 +24,11 @@ get_user_location() {
   local USERNAME="$1"
 
   if [ "$USERNAME" = "root" ]; then
-    return "/root"
+    echo "/root"
+    return
   fi
 
-  return "/home/$USERNAME"
+  echo "/home/$USERNAME"
 }
 
 # Ensures ZSH config file exists
@@ -54,11 +55,10 @@ check_zsh() {
 check_oh_my_zsh() {
   local OMZSH_LOCATION="$1"
 
-  if ! [ -d $OMZSH_LOCATION ]; then
+  if ! [ -d "$OMZSH_LOCATION" ]; then
     echo "Installing oh-my-zsh..."
     check_packages wget
     sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
   fi
 }
-
 

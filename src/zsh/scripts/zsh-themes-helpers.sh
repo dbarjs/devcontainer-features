@@ -27,5 +27,5 @@ install_spaceship_theme() {
   echo "Installing ZSH spaceship theme..."
 
   # set spaceship theme
-  sed -i '/^ZSH_THEME/c\ZSH_THEME="spaceship"' "$ZSH_CONFIG"
+  sed -i '/^ZSH_THEME/c\ZSH_THEME="spaceship"' "$ZSH_CONFIG_LOCATION"
 }

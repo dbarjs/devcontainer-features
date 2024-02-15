@@ -1,17 +1,18 @@
 #!/bin/bash
 
+set -e
+
 USERNAME="${USERNAME:-"node"}"
 COMMAND_HISTORY_LOCATION="${COMMANDHISTORYLOCATION:-"/commandhistory/"}"
 OMZ_PLUGIN_LIST="${OMZPLUGINLIST:-""}"
 
-set -e
 
 # Import helper scripts
-source "scripts/env-helpers.sh"
-source "scripts/command-history-helpers.sh"
-source "scripts/omzsh-helpers.sh"
-source "scripts/zsh-plugins-helpers.sh"
-source "scripts/zsh-themes-helpers.sh"
+source "./scripts/env-helpers.sh"
+source "./scripts/command-history-helpers.sh"
+source "./scripts/omzsh-helpers.sh"
+source "./scripts/zsh-plugins-helpers.sh"
+source "./scripts/zsh-themes-helpers.sh"
 
 # Check if root
 check_root
