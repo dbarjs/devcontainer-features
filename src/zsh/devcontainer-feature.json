@@ -1,16 +1,24 @@
 {
   "id": "zsh",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "name": "ZSH for Dev Containers",
   "description": "A feature that installs ZSH with Oh My ZSH, command history, plugins, and themes.",
   "installsAfter": [
     "ghcr.io/devcontainers/features/common-utils",
-    "ghcr.io/devcontainers/features/git"
+    "ghcr.io/devcontainers/features/git",
+    "ghcr.io/devcontainers-contrib/features/zsh-plugins"
+  ],
+  "mounts": [
+    {
+      "source": "devcontainer-zshhistory",
+      "target": "/commandhistory",
+      "type": "volume"
+    }
   ],
   "options": {
     "commandHistoryLocation": {
       "type": "string",
-      "default": "/commandhistory/",
+      "default": "/commandhistory",
       "description": "Location to store command history"
     },
     "omzPluginList": {
