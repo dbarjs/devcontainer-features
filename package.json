@@ -1,0 +1,7 @@
+{
+  "type": "module",
+  "devDependencies": {
+    "eslint": "latest",
+    "@antfu/eslint-config": "latest"
+  }
+}

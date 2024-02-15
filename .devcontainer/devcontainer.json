@@ -1,7 +1,13 @@
 {
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:20-bookworm",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
   "customizations": {
     "vscode": {
+      "extensions": [
+        "mads-hartmann.bash-ide-vscode",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "DavidAnson.vscode-markdownlint"
+      ],
       "settings": {
         "json.schemas": [
           {
@@ -11,15 +17,17 @@
             "url": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainerFeature.schema.json"
           }
         ]
-      },
-      "extensions": [
-        "mads-hartmann.bash-ide-vscode"
-      ]
+      }
     }
   },
   "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": { }
+    "ghcr.io/devcontainers/features/python:1": { },
+    "ghcr.io/devcontainers/features/node:1": { },
+    "ghcr.io/devcontainers/features/github-cli:1": { },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": { },
+    "ghcr.io/devcontainers/features/common-utils:2": { },
+    "ghcr.io/lukewiwa/features/shellcheck:0.2.3": { }
   },
   "remoteUser": "node",
-  "updateContentCommand": "npm install -g @devcontainers/cli"
+  "postCreateCommand": "/bin/bash -ex ./.devcontainer/setup.sh > postCreateCommand.log"
 }
