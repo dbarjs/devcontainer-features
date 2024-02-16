@@ -1,19 +1,12 @@
 {
   "id": "code-extras",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "name": "Extra settings and extensions for VS Code",
   "description": "A collection of extra settings and extensions for VS Code.",
   "dependsOn": {
-    "ghcr.io/devcontainers/features/github-cli:1": { },
-    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": { },
-    "ghcr.io/devcontainers/features/docker-in-docker:2": { },
-    "ghcr.io/dbarjs/devcontainer-features/zsh:latest": { },
-    "ghcr.io/dbarjs/devcontainer-features/code-essentials": { }
+    "ghcr.io/dbarjs/devcontainer-features/code-essentials:0.1.1": { }
   },
   "installsAfter": [
-    "ghcr.io/devcontainers/features/common-utils",
-    "ghcr.io/devcontainers/features/git",
-    "ghcr.io/dbarjs/devcontainer-features/zsh",
     "ghcr.io/dbarjs/devcontainer-features/code-essentials"
   ],
   "customizations": {

@@ -1,12 +1,9 @@
 {
   "id": "code-essentials",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "name": "Essential Setup for VS Code",
   "description": "A collection of essential settings and extensions for VS Code.",
   "dependsOn": {
-    "ghcr.io/devcontainers/features/github-cli:1": { },
-    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": { },
-    "ghcr.io/devcontainers/features/docker-in-docker:2": { },
     "ghcr.io/dbarjs/devcontainer-features/zsh:latest": { }
   },
   "installsAfter": [
