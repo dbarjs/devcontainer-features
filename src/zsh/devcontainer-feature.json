@@ -1,6 +1,6 @@
 {
   "id": "zsh",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "name": "ZSH for Dev Containers",
   "description": "A feature that installs ZSH with Oh My ZSH, command history, plugins, and themes.",
   "installsAfter": [

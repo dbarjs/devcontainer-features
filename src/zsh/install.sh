@@ -46,3 +46,6 @@ install_zsh_plugin_list "$OMZ_PLUGIN_LIST" "$(get_omzsh_plugins_location "$OMZSH
 
 # Install themes
 install_spaceship_theme "$(get_omzsh_themes_location "$OMZSH_LOCATION")" "$ZSH_CONFIG_LOCATION"
+
+# Set permissions for installed OMZ files
+chown -R "$USERNAME" "$OMZSH_LOCATION"
