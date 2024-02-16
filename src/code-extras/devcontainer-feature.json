@@ -1,10 +1,10 @@
 {
   "id": "code-extras",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "name": "Extra settings and extensions for VS Code",
   "description": "A collection of extra settings and extensions for VS Code.",
   "dependsOn": {
-    "ghcr.io/dbarjs/devcontainer-features/code-essentials:0.1.1": { }
+    "ghcr.io/dbarjs/devcontainer-features/code-essentials:0.1.2": { }
   },
   "installsAfter": [
     "ghcr.io/dbarjs/devcontainer-features/code-essentials"

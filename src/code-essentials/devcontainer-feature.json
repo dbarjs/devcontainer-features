@@ -1,15 +1,11 @@
 {
   "id": "code-essentials",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "name": "Essential Setup for VS Code",
   "description": "A collection of essential settings and extensions for VS Code.",
-  "dependsOn": {
-    "ghcr.io/dbarjs/devcontainer-features/zsh:latest": { }
-  },
   "installsAfter": [
     "ghcr.io/devcontainers/features/common-utils",
-    "ghcr.io/devcontainers/features/git",
-    "ghcr.io/dbarjs/devcontainer-features/zsh"
+    "ghcr.io/devcontainers/features/git"
   ],
   "customizations": {
     "vscode": {
