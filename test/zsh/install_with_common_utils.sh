@@ -14,9 +14,6 @@ plugin_urls=(
 # Define plugin list
 plugin_list="git zsh-autosuggestions zsh-syntax-highlighting zsh-z"
 
-# print all directories inside .oh-my-zsh/plugins
-ls -l "$HOME"/.oh-my-zsh/custom/plugins
-
 # Test if plugins are correctly cloned into oh-my-zsh directory
 for url in "${plugin_urls[@]}"; do
     # Extract plugin name from URL
@@ -57,4 +54,7 @@ check "BASH history configured" grep -q "HISTFILE=$COMMAND_HISTORY_LOCATION/$BAS
 # Test if ZSH history is correctly configured finding if has `HISTFILE=/commandhistory/.zsh_history` in any part of .zshrc
 check "ZSH history configured" grep -q "HISTFILE=$COMMAND_HISTORY_LOCATION/$ZSH_HISTORY_FILENAME" "$HOME/.zshrc"
 
+cat "$HOME/.zshrc"
+
 reportResults
+
