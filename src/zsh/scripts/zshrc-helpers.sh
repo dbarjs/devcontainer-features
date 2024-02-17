@@ -83,11 +83,29 @@ extract_plugin_list_from_zsh_config() {
   echo "$PLUGINS_LIST"
 }
 
+initialize_zsh_plugins_config() {
+  local ZSH_CONFIG_LOCATION="$1"
+  
+  # Check if a valid plugins config exists, if not, add an empty config
+  if ! grep -q "^\s*plugins=\((\s*\S+\s*)*\)" "$ZSH_CONFIG_LOCATION"; then
+    echo "plugins=( )" >> "$ZSH_CONFIG_LOCATION"
+  fi
+}
+
 add_plugin_to_zsh_config_file() {
     local ZSH_CONFIG_LOCATION="$1"
-    local NEW_PLUGIN_NAME="$2"
+    local PLUGIN_NAME="$2"
 
-    awk -v np="$NEW_PLUGIN_NAME" '
+    initialize_zsh_plugins_config "$ZSH_CONFIG_LOCATION"
+
+    # Check if the plugin already exists in the configuration
+    if grep -q "^\s*plugins=\(.*\b${PLUGIN_NAME}\b.*\)\s*$" "$ZSH_CONFIG_LOCATION"; then
+        echo "Plugin '$PLUGIN_NAME' is already configured."
+        return
+    fi
+
+    # Use awk to update the .zshrc file, ensuring proper plugin addition
+    awk -v np="$PLUGIN_NAME" '
     /^\s*plugins=\(.*\)\s*$/ {
         if ($0 !~ np) {
             sub(/\)$/, " " np "&")
@@ -110,65 +128,9 @@ add_plugin_to_zsh_config_file() {
     ' "$ZSH_CONFIG_LOCATION" > "${ZSH_CONFIG_LOCATION}.tmp" && mv "${ZSH_CONFIG_LOCATION}.tmp" "$ZSH_CONFIG_LOCATION"
 }
 
-# Function to install a ZSH plugin by URL or slug.
-# Parameters:
-#   - PLUGIN_NAME_OR_URL: The slug or URL of the plugin.
-#   - ZSH_CONFIG_LOCATION: The location of the ZSH configuration.
-#   - PLUGINS_LOCATION: The location where the plugins are stored.
-install_zsh_plugin_by_url_or_slug() {
-  local PLUGIN_NAME_OR_URL="$1"
-  local ZSH_CONFIG_LOCATION="$2"
-  local PLUGINS_LOCATION="$3"
+set_theme_to_zsh_config_file() {
+  local ZSH_CONFIG_LOCATION="$1"
+  local THEME_NAME="$2"
 
-  # If the plugin is not provided, return
-  if [ -z "$PLUGIN" ]; then
-    return
-  fi
-
-  echo "Installing ZSH plugin: $PLUGIN_NAME on $PLUGINS_LOCATION"
-
-  local PLUGIN_NAME
-  local PLUGIN_URL
-
-  if is_plugin_url "$PLUGIN_NAME_OR_URL"; then
-    PLUGIN_URL="$PLUGIN_NAME_OR_URL"
-    PLUGIN_NAME=$(basename "$PLUGIN_URL")
-
-    clone_zsh_plugin "$PLUGIN_URL" "$PLUGIN_NAME" "$PLUGINS_LOCATION"
-  else
-    PLUGIN_NAME="$PLUGIN_NAME_OR_URL"
-  fi
-
-  add_plugin_to_zsh_config_file "$ZSH_CONFIG_LOCATION" "$PLUGIN_NAME"
-}
-
-# Install ZSH plugins by URL or slug list
-#
-# This function installs ZSH plugins based on a list of plugin URLs. It takes three parameters:
-# - PLUGIN_LIST: A space-separated list of plugin URLs or slugs.
-# - PLUGINS_LOCATION: The location where the plugins will be installed.
-# - ZSH_CONFIG_LOCATION: The location of the ZSH configuration file.
-#
-# If PLUGIN_LIST is empty, the function returns without performing any installation.
-# For each plugin URL in PLUGIN_LIST, the function calls the install_zsh_plugin_by_url_or_slug function to install the plugin.
-#
-# Example usage:
-# install_zsh_plugin_list "https://github.com/zsh-users/zsh-autosuggestions" "/path/to/plugins" "/path/to/zshrc"
-#
-install_zsh_plugin_list() {
-  local PLUGIN_LIST="$1"
-  local PLUGINS_LOCATION="$2"
-  local ZSH_CONFIG_LOCATION="$3"
-
-  # If the plugin list is empty, return
-  if [ -z "$PLUGIN_LIST" ]; then
-    echo "No plugins to install."
-    return
-  fi
-
-  echo "Installing ZSH plugins..."
-
-  for PLUGIN in $PLUGIN_LIST; do
-    install_zsh_plugin_by_url_or_slug "$PLUGIN" "$ZSH_CONFIG_LOCATION" "$PLUGINS_LOCATION"
-  done
+  sed -i -e "s/ZSH_THEME=.*/ZSH_THEME=\"$THEME_NAME\"/g" "$ZSH_CONFIG_LOCATION"
 }

@@ -1,6 +1,6 @@
 {
   "id": "zsh",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "name": "ZSH for Dev Containers",
   "description": "A feature that installs ZSH with Oh My ZSH, command history, plugins, and themes.",
   "installsAfter": [
@@ -10,7 +10,7 @@
   ],
   "mounts": [
     {
-      "source": "devcontainer-zshhistory",
+      "source": "devcontainers-commandhistory",
       "target": "/commandhistory",
       "type": "volume"
     }
@@ -21,10 +21,30 @@
       "default": "/commandhistory",
       "description": "Location to store command history"
     },
-    "omzPluginList": {
+    "omzPluginCloneList": {
       "type": "string",
-      "default": "git https://github.com/zsh-users/zsh-autosuggestions https://github.com/zsh-users/zsh-syntax-highlighting https://github.com/agkozak/zsh-z",
+      "default": "https://github.com/zsh-users/zsh-autosuggestions https://github.com/zsh-users/zsh-syntax-highlighting https://github.com/agkozak/zsh-z",
       "description": "Space separated list of Oh-My-ZSH custom plugin Git URLs that will be cloned"
+    },
+    "zshPluginList": {
+      "type": "string",
+      "default": "git zsh-autosuggestions zsh-syntax-highlighting zsh-z",
+      "description": "Space separated list of ZSH plugin names that will be installed"
+    },
+    "configureCommandHistory": {
+      "type": "string",
+      "default": "true",
+      "description": "Whether to configure ZSH to use the command history feature"
+    },
+    "restoreZshConfig": {
+      "type": "string",
+      "default": "true",
+      "description": "Whether to overwrite the ZSH configuration file with the default OMZ configuration"
+    },
+    "installSpaceshipTheme": {
+      "type": "string",
+      "default": "true",
+      "description": "Whether to install the Spaceship theme"
     },
     "username": {
       "type": "string",

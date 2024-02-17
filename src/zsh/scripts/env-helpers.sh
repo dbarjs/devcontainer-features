@@ -10,13 +10,13 @@ check_root() {
 
 # Checks if packages are installed and installs them if not
 check_packages() {
-	if ! dpkg -s "$@" >/dev/null 2>&1; then
-		if [ "$(find /var/lib/apt/lists/* | wc -l)" = "0" ]; then
-			echo "Running apt-get update..."
-			apt-get update -y
-		fi
-		apt-get -y install --no-install-recommends "$@"
-	fi
+  if ! dpkg -s "$@" >/dev/null 2>&1; then
+    if [ "$(find /var/lib/apt/lists/* | wc -l)" = "0" ]; then
+      echo "Running apt-get update..."
+      apt-get update -y
+    fi
+    apt-get -y install --no-install-recommends "$@"
+  fi
 }
 
 # Get the location of the user's home directory
@@ -45,7 +45,7 @@ check_zsh() {
   local ZSH_CONFIG_LOCATION="$1"
 
   if ! type zsh >/dev/null 2>&1; then
-      check_packages zsh
+    check_packages zsh
   fi
 
   check_zsh_config_file "$ZSH_CONFIG_LOCATION"
@@ -56,9 +56,36 @@ check_oh_my_zsh() {
   local OMZSH_LOCATION="$1"
 
   if ! [ -d "$OMZSH_LOCATION" ]; then
-    echo "Installing oh-my-zsh..."
     check_packages wget
     sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
   fi
 }
 
+# Get GID of the username group
+get_user_group_name() {
+  local USERNAME="$1"
+
+  local group_name="$USERNAME"
+
+  if id -u "${USERNAME}" > /dev/null 2>&1; then
+    group_name=$(id -gn "${USERNAME}")
+  fi
+
+  echo "$group_name"
+}
+
+# Set directory permissions for a user
+set_directory_permissions() {
+  local DIRECTORY="$1"
+  local USERNAME="$2"
+
+  chown -R "$USERNAME:$(get_user_group_name "$USERNAME")" "$DIRECTORY"
+}
+
+# Set file permissions for a user
+set_file_permissions() {
+  local FILE="$1"
+  local USERNAME="$2"
+
+  chown "$USERNAME:$(get_user_group_name "$USERNAME")" "$FILE"
+}
