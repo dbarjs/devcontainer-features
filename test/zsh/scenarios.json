@@ -1,12 +1,7 @@
 {
   "install_with_common_utils": {
-    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "image": "dbarjs/vue-devcontainer:current",
     "features": {
-      "ghcr.io/devcontainers/features/common-utils:2": {
-        "installZsh": "true",
-        "installOhMyZshConfig": "false",
-        "upgradePackages": "true"
-      },
       "zsh": { }
     }
   }

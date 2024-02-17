@@ -2,6 +2,13 @@
 
 set -e
 
+
+# check if is not CI environment, then print .zshrc file
+if [ -z "$CI" ]; then
+  cat "$HOME/.zshrc"
+fi
+
+
 source dev-container-features-test-lib
 
 # Define plugin URLs
@@ -53,8 +60,6 @@ check "BASH history configured" grep -q "HISTFILE=$COMMAND_HISTORY_LOCATION/$BAS
 
 # Test if ZSH history is correctly configured finding if has `HISTFILE=/commandhistory/.zsh_history` in any part of .zshrc
 check "ZSH history configured" grep -q "HISTFILE=$COMMAND_HISTORY_LOCATION/$ZSH_HISTORY_FILENAME" "$HOME/.zshrc"
-
-cat "$HOME/.zshrc"
 
 reportResults
 

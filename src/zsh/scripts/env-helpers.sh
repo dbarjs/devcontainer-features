@@ -31,26 +31,6 @@ get_user_location() {
   echo "/home/$USERNAME"
 }
 
-# Ensures ZSH config file exists
-check_zsh_config_file() {
-  local ZSH_CONFIG_LOCATION="$1"
-
-  if ! [ -f "$ZSH_CONFIG_LOCATION" ]; then
-    mkdir -p "$(dirname "$ZSH_CONFIG_LOCATION")" && touch "$ZSH_CONFIG_LOCATION"
-  fi
-}
-
-# Ensures ZSH is installed
-check_zsh() {
-  local ZSH_CONFIG_LOCATION="$1"
-
-  if ! type zsh >/dev/null 2>&1; then
-    check_packages zsh
-  fi
-
-  check_zsh_config_file "$ZSH_CONFIG_LOCATION"
-}
-
 # Ensures Oh My ZSH is installed
 check_oh_my_zsh() {
   local OMZSH_LOCATION="$1"

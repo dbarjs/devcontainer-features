@@ -25,7 +25,7 @@ check_root
 echo "Configuring ZSH for user: $USERNAME"
 
 # Check if required packages are installed
-check_packages git ca-certificates
+check_packages git ca-certificates zsh
 
 # Get user location
 USER_LOCATION=$(get_user_location "$USERNAME")
@@ -36,7 +36,6 @@ ZSH_CONFIG_LOCATION="$USER_LOCATION/.zshrc"
 OMZSH_LOCATION=$(get_omzsh_location "$USER_LOCATION")
 
 # Check ZSH installation
-check_zsh "$ZSH_CONFIG_LOCATION"
 check_oh_my_zsh "$OMZSH_LOCATION"
 
 # Restore ZSH config with OMZ default .zshrc
