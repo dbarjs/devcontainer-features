@@ -4,7 +4,7 @@ set -e
 
 USERNAME=${USERNAME:-$_REMOTE_USER}
 
-echo "Installing Code Extras feature for the user '$USERNAME'"
+echo "Installing Code Vue feature for the user '$USERNAME'"
 
 create_indicator_file() {
   local LOCATION="/home/$USERNAME"
@@ -15,7 +15,7 @@ create_indicator_file() {
     exit 1
   fi
 
-  local FILE_PATH="$LOCATION/.code-extras"
+  local FILE_PATH="$LOCATION/.code-vue"
 
   touch "$FILE_PATH"
   chown "$USERNAME:$USERNAME" "$FILE_PATH"
