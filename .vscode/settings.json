@@ -5,7 +5,7 @@
   
   "bashIde.explainshellEndpoint": "http://localhost:5000",
 
-  // ========== antfu settings ========== 
+  // ========== antfu/eslint-config settings ========== 
 
   // Enable the ESlint flat config support
   "eslint.experimental.useFlatConfig": true,

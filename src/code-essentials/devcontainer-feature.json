@@ -1,6 +1,6 @@
 {
   "id": "code-essentials",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "name": "Essential Setup for VS Code",
   "description": "A collection of essential settings and extensions for VS Code.",
   "installsAfter": [
@@ -11,18 +11,17 @@
     "vscode": {
       "extensions": [
         "aaron-bond.better-comments",
-        "antfu.file-nesting",
-        "johnsoncodehk.vscode-tsconfig-helper",
+        "dbaeumer.vscode-eslint",
+        "editorconfig.editorconfig",
+        "esbenp.prettier-vscode",
         "ms-azuretools.vscode-docker",
         "naumovs.color-highlight",
         "streetsidesoftware.code-spell-checker",
         "usernamehw.errorlens"
       ],
       "settings": {
-        "explorer.fileNesting.enabled": true,
-        "explorer.fileNesting.expand": false,
-        "cSpell.enabled": false,
         "cSpell.allowCompoundWords": true,
+        "cSpell.enabled": false,
         "emmet.showSuggestionsAsSnippets": true,
         "emmet.triggerExpansionOnTab": false,
         "errorLens.enabledDiagnosticLevels": [
@@ -33,11 +32,11 @@
           "cSpell",
           "eslint"
         ],
-        "fileNestingUpdater.autoUpdate": true,
-        "fileNestingUpdater.autoUpdateInterval": 720,
-        "fileNestingUpdater.promptOnAutoUpdate": false,
-        "fileNestingUpdater.upstreamRepo": "antfu/vscode-file-nesting-config",
-        "fileNestingUpdater.upstreamBranch": "main",
+        "eslint.experimental.useFlatConfig": true,
+        "explorer.fileNesting.enabled": true,
+        "explorer.fileNesting.expand": false,
+        "files.eol": "\n",
+        "files.insertFinalNewline": true,
         "git.autofetch": true,
         "git.confirmSync": false,
         "git.enableSmartCommit": true,

@@ -1,0 +1,30 @@
+{
+  "id": "code-vue",
+  "version": "0.0.1",
+  "name": "Vue settings and extensions for VS Code",
+  "description": "A collection of settings and extensions for VS Code for Vue development.",
+  "installsAfter": [
+    "ghcr.io/dbarjs/devcontainer-features/code-essentials",
+    "ghcr.io/dbarjs/devcontainer-features/code-extras"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "antfu.iconify",
+        "antfu.slidev",
+        "antfu.unocss",
+        "antfu.vite",
+        "bradlc.vscode-tailwindcss",
+        "lokalise.i18n-ally",
+        "Vue.volar"
+      ],
+      "settings": {
+        "iconify.annotations": true,
+        "iconify.inplace": true,
+        "i18n-ally.autoDetection": false,
+        "i18n-ally.displayLanguage": "en",
+        "i18n-ally.ignoredLocales": []
+      }
+    }
+  }
+}
