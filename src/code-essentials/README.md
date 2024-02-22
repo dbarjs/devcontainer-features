@@ -18,8 +18,9 @@ A collection of essential settings and extensions for VS Code.
 ### VS Code Extensions
 
 - `aaron-bond.better-comments`
-- `antfu.file-nesting`
-- `johnsoncodehk.vscode-tsconfig-helper`
+- `dbaeumer.vscode-eslint`
+- `editorconfig.editorconfig`
+- `esbenp.prettier-vscode`
 - `ms-azuretools.vscode-docker`
 - `naumovs.color-highlight`
 - `streetsidesoftware.code-spell-checker`
