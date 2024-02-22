@@ -17,13 +17,14 @@ A collection of extra settings and extensions for VS Code.
 
 ### VS Code Extensions
 
+- `antfu.file-nesting`
 - `antfu.open-in-github-button`
-- `antfu.where-am-i`
 - `eamodio.gitlens`
-- `GitHub.copilot`
+- `github.copilot`
+- `johnsoncodehk.vscode-tsconfig-helper`
 - `github.vscode-github-actions`
-- `github.vscode-github-actions`
-- `GitHub.vscode-pull-request-github`
+- `github.vscode-pull-request-github`
+- `github.copilot-chat`
 
 
 
