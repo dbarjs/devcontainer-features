@@ -1,0 +1,33 @@
+{
+  "id": "op-agent",
+  "version": "0.0.1",
+  "name": "1Password Agent devcontainer fixes",
+  "description": "A feature that fix the settings of the 1Password Agent to work in a devcontainer",
+  "installsAfter": [
+    "ghcr.io/devcontainers/features/common-utils"
+  ],
+  "mounts": [
+    {
+      "source": "${localEnv:HOME}${localEnv:USERPROFILE}/.ssh",
+      "target": "/home/node/ssh-config",
+      "type": "bind"
+    }
+  ],
+  "options": {
+    "sshConfigMountPath": {
+      "type": "string",
+      "default": "/home/node/ssh-config",
+      "description": "The path to mount the .ssh/config file"
+    },
+    "username": {
+      "type": "string",
+      "proposals": [
+        "root",
+        "node",
+        "vscode"
+      ],
+      "default": "",
+      "description": "The username to modify the remote user config files"
+    }
+  }
+}
